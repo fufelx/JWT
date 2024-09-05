@@ -20,7 +20,7 @@ func GenerateToken(userID, ip string) (string, error) {
 			IssuedAt:  jwt.NewNumericDate(time.Now()),
 		},
 	}
-	token := jwt.NewWithClaims(jwt.SigningMethodHS256, Claims)
+	token := jwt.NewWithClaims(jwt.SigningMethodHS512, Claims)
 
 	return token.SignedString(JwtSecret)
 }
